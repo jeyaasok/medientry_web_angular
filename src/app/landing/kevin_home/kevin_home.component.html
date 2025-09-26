@@ -1,0 +1,373 @@
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <!-- Begin page -->
+    <div class="layout-wrapper landing">
+        <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar"
+            (window:scroll)="windowScroll()">
+            <div class="container-fluid custom-container">
+                <a class="navbar-brand" routerLink="">
+                    <span class="fs-4 fw-bold text-primary">MediEntry</span>
+                </a>
+                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation" (click)="collapse.toggle()">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+
+                <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
+                        <li class="nav-item">
+                            <a class="nav-link fs-14 active" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'hero'}" [ngxScrollTo]="'#hero'">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'features'}"
+                                [ngxScrollTo]="'#features'">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'howitworks'}"
+                                [ngxScrollTo]="'#howitworks'">How it Works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'benefits'}" 
+                                [ngxScrollTo]="'#benefits'">Benefits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'contact'}"
+                                [ngxScrollTo]="'#contact'">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="">
+                        <a href="#" class="btn btn-primary"><i
+                                class="ri-download-2-line align-bottom me-1"></i> Download App</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- end navbar -->
+
+        <!-- start hero section -->
+        <section class="section job-hero-section bg-light pb-0" id="hero">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-6">
+                        <div>
+                            <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base">Streamline Your Medical Data Entry with MediEntry</h1>
+                            <p class="lead text-muted lh-base mb-4">Efficient, accurate, and secure medical data management solution designed for healthcare professionals. Save time and reduce errors in your medical data entry process.</p>
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-primary btn-lg me-3">
+                                    <i class="ri-download-2-line align-middle me-1"></i> Download for Windows
+                                </a>
+                                <a href="#" class="btn btn-light btn-lg">
+                                    <i class="ri-mac-line align-middle me-1"></i> Download for Mac
+                                </a>
+                            </div>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="ri-shield-check-line text-primary fs-3 me-2"></i>
+                                            <div>
+                                                <h6 class="mb-0">HIPAA Compliant</h6>
+                                                <small class="text-muted">Secure & Protected</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="ri-database-2-line text-primary fs-3 me-2"></i>
+                                            <div>
+                                                <h6 class="mb-0">Cloud Backup</h6>
+                                                <small class="text-muted">Always Available</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="ri-customer-service-2-line text-primary fs-3 me-2"></i>
+                                            <div>
+                                                <h6 class="mb-0">24/7 Support</h6>
+                                                <small class="text-muted">Always Here</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative home-img text-center mt-5 mt-lg-0">
+                            <div class="card p-3 rounded shadow-lg inquiry-box">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-sm flex-shrink-0 me-3">
+                                        <div class="avatar-title bg-primary-subtle text-primary rounded fs-18">
+                                            <i class="ri-file-text-line"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="fs-15 lh-base mb-0">Easy Medical Data Entry</h5>
+                                </div>
+                            </div>
+
+                            <div class="card p-3 rounded shadow-lg application-box">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-sm flex-shrink-0 me-3">
+                                        <div class="avatar-title bg-success-subtle text-success rounded fs-18">
+                                            <i class="ri-check-double-line"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="fs-15 lh-base mb-0">Accurate & Efficient</h5>
+                                </div>
+                            </div>
+
+                            <!-- You might want to replace this image with a screenshot of your MediEntry application -->
+                            <img src="assets/images/job-profile2.png" alt="MediEntry Application" class="user-img">
+                            <div class="circle-effect">
+                                <div class="circle"></div>
+                                <div class="circle2"></div>
+                                <div class="circle3"></div>
+                                <div class="circle4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end hero section -->
+
+        <!-- Features Section -->
+        <section class="section bg-light" id="features">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Features that Streamline Your Workflow</h2>
+                            <p class="text-muted">MediEntry provides powerful features to make medical data entry effortless and accurate.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add your features content here -->
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section class="section" id="howitworks">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">How MediEntry Works</h2>
+                            <p class="text-muted">Simple, intuitive, and efficient medical data entry process.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add your how it works content here -->
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section bg-light" id="benefits">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Benefits of Using MediEntry</h2>
+                            <p class="text-muted">Discover how MediEntry can transform your medical data management.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add your benefits content here -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Get in Touch</h2>
+                            <p class="text-muted">Have questions? We're here to help you get started with MediEntry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <!-- Animation Column -->
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <!-- Lottie animation container -->
+                            <div class="animation-container" #animationContainer></div>
+                            <div class="mt-4">
+                                <h4>Contact Us</h4>
+                                <p class="text-muted">Our support team is available 24/7 to assist you.</p>
+                                <div class="d-flex justify-content-center gap-3 mt-4">
+                                    <div class="p-3 bg-light rounded">
+                                        <i class="ri-phone-line text-primary fs-2"></i>
+                                        <p class="mt-2 mb-0">+1 234 567 8900</p>
+                                    </div>
+                                    <div class="p-3 bg-light rounded">
+                                        <i class="ri-mail-line text-primary fs-2"></i>
+                                        <p class="mt-2 mb-0">support&#64;medientry.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Form Column -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-lg">
+                            <div class="card-body p-4">
+                                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+                                    <div class="mb-4">
+                                        <label for="name" class="form-label fw-medium">Full Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0">
+                                                <i class="ri-user-line text-muted"></i>
+                                            </span>
+                                            <input type="text" 
+                                                class="form-control border-start-0 ps-0" 
+                                                [ngClass]="{'is-invalid': contactForm.get('name')?.touched && contactForm.get('name')?.invalid,
+                                                          'is-valid': contactForm.get('name')?.valid}"
+                                                id="name" 
+                                                formControlName="name" 
+                                                placeholder="Enter your name">
+                                        </div>
+                                        <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('name')}}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="mobile" class="form-label fw-medium">Mobile Number</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0">
+                                                <i class="ri-phone-line text-muted"></i>
+                                            </span>
+                                            <input type="tel" 
+                                                class="form-control border-start-0 ps-0" 
+                                                [ngClass]="{'is-invalid': contactForm.get('mobile')?.touched && contactForm.get('mobile')?.invalid,
+                                                          'is-valid': contactForm.get('mobile')?.valid}"
+                                                id="mobile" 
+                                                formControlName="mobile" 
+                                                placeholder="Enter your mobile number">
+                                        </div>
+                                        <div *ngIf="contactForm.get('mobile')?.touched && contactForm.get('mobile')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('mobile')}}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="email" class="form-label fw-medium">Email Address</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0">
+                                                <i class="ri-mail-line text-muted"></i>
+                                            </span>
+                                            <input type="email" 
+                                                class="form-control border-start-0 ps-0" 
+                                                [ngClass]="{'is-invalid': contactForm.get('email')?.touched && contactForm.get('email')?.invalid,
+                                                          'is-valid': contactForm.get('email')?.valid}"
+                                                id="email" 
+                                                formControlName="email" 
+                                                placeholder="Enter your email">
+                                        </div>
+                                        <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('email')}}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="reason" class="form-label fw-medium">Reason for Contact</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0">
+                                                <i class="ri-message-2-line text-muted"></i>
+                                            </span>
+                                            <textarea class="form-control border-start-0 ps-0" 
+                                                [ngClass]="{'is-invalid': contactForm.get('reason')?.touched && contactForm.get('reason')?.invalid,
+                                                          'is-valid': contactForm.get('reason')?.valid}"
+                                                id="reason" 
+                                                formControlName="reason" 
+                                                rows="4" 
+                                                placeholder="Tell us how we can help"></textarea>
+                                        </div>
+                                        <div *ngIf="contactForm.get('reason')?.touched && contactForm.get('reason')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('reason')}}
+                                        </div>
+                                        <small class="text-muted">{{contactForm.get('reason')?.value?.length || 0}}/500 characters</small>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <button type="submit" 
+                                            class="btn btn-primary btn-lg px-4" 
+                                            [disabled]="contactForm.invalid || isSubmitting">
+                                            <i class="ri-send-plane-fill me-1"></i>
+                                            <span *ngIf="!isSubmitting">Send Message</span>
+                                            <span *ngIf="isSubmitting">
+                                                <i class="ri-loader-4-line animate-spin"></i> Sending...
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toast Notification -->
+                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050">
+                        <div *ngIf="showToast" 
+                            class="toast show" 
+                            [ngClass]="{'bg-success text-white': toastType === 'success', 
+                                       'bg-danger text-white': toastType === 'error'}"
+                            role="alert" 
+                            aria-live="assertive" 
+                            aria-atomic="true">
+                            <div class="toast-header border-0" 
+                                [ngClass]="{'bg-success text-white': toastType === 'success', 
+                                           'bg-danger text-white': toastType === 'error'}">
+                                <i class="me-2" 
+                                   [ngClass]="{'ri-check-line': toastType === 'success', 
+                                             'ri-error-warning-line': toastType === 'error'}"></i>
+                                <strong class="me-auto">{{toastType === 'success' ? 'Success' : 'Error'}}</strong>
+                                <button type="button" 
+                                    class="btn-close btn-close-white" 
+                                    (click)="showToast = false">
+                                </button>
+                            </div>
+                            <div class="toast-body">
+                                {{toastMessage}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mt-5 mb-5">
+                            <p class="mb-0">&copy; {{currentYear}} MediEntry. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--start back-to-top-->
+        <button (click)="topFunction()" class="btn btn-primary btn-icon landing-back-top" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+        <!--end back-to-top-->
+
+    </div>
+    <!-- end layout wrapper -->
+</div>

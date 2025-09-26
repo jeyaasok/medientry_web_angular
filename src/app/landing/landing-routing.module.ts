@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from "./index/index.component";
 import { NftComponent } from "./nft/nft.component";
 import { JobComponent } from './job/job.component';
+import { KevinHomeComponent } from './kevin_home/kevin_home.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: "job",
     component: JobComponent
+  },
+  {
+    path: "kevin-home",
+    component: KevinHomeComponent
   }
 ];
 
