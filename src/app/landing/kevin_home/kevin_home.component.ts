@@ -2,12 +2,28 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angula
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import lottie from 'lottie-web';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbCollapseModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { SharedModule } from '../../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-kevin-home',
     templateUrl: './kevin_home.component.html',
     styleUrls: ['./kevin_home.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgbCollapseModule,
+        NgbToastModule,
+        ScrollToModule,
+        SharedModule,
+        RouterModule
+    ]
 })
 export class KevinHomeComponent implements OnInit, AfterViewInit {
   @ViewChild('animationContainer') animationContainer!: ElementRef;
@@ -118,95 +134,6 @@ export class KevinHomeComponent implements OnInit, AfterViewInit {
       });
       this.showNotification('Please fix the errors in the form before submitting.', 'error');
     }
-  }
-
-  ngOnInit(): void {
-    // Initialize component
-  }
-
-  ngAfterViewInit() {
-    // Load and play the Lottie animation
-    lottie.loadAnimation({
-      container: this.animationContainer.nativeElement,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/animations/contact-phone.json'
-    });
-  }
-
-  onSubmit() {
-    if (this.contactForm.valid) {
-      this.isSubmitting = true;
-      
-      // Send form data to PHP backend
-      this.http.post('/api/contact.php', this.contactForm.value)
-        .subscribe({
-          next: (response: any) => {
-            this.isSubmitting = false;
-            if (response.success) {
-              this.showNotification('Thank you for contacting us! We will get back to you soon.', 'success');
-              this.contactForm.reset();
-            } else {
-              this.showNotification(response.message || 'Sorry, there was an error sending your message.', 'error');
-            }
-          },
-          error: (error) => {
-            this.isSubmitting = false;
-            this.showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
-            console.error('Contact form submission error:', error);
-          }
-        });
-    } else {
-      // Mark all fields as touched to trigger validation messages
-      Object.keys(this.contactForm.controls).forEach(key => {
-        const control = this.contactForm.get(key);
-        control?.markAsTouched();
-      });
-      this.showNotification('Please fix the errors in the form before submitting.', 'error');
-    }
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit() {
-    // Load and play the Lottie animation
-    lottie.loadAnimation({
-      container: this.animationContainer.nativeElement,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/animations/contact-phone.json' // We'll create this animation file
-    });
-  }
-
-  onSubmit() {
-    if (this.contactForm.valid) {
-      this.isSubmitting = true;
-      
-      // Send form data to PHP backend
-      this.http.post('/api/contact.php', this.contactForm.value)
-        .subscribe({
-          next: (response: any) => {
-            this.isSubmitting = false;
-            if (response.success) {
-              alert('Thank you for contacting us! We will get back to you soon.');
-              this.contactForm.reset();
-            } else {
-              alert('Sorry, there was an error sending your message. Please try again.');
-            }
-          },
-          error: (error) => {
-            this.isSubmitting = false;
-            alert('Sorry, there was an error sending your message. Please try again.');
-            console.error('Contact form submission error:', error);
-          }
-        });
-    }
-  }
-
-  ngOnInit(): void {
   }
 
   /**

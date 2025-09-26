@@ -126,7 +126,7 @@
         "OFFLINE": "Offline Page"
       }
     },
-    "PAGES": {
+    "PAGE_ITEMS": {
       "TEXT": "Pages",
       "LIST": {
         "STARTER": "Starter",
@@ -155,7 +155,8 @@
       "LIST": {
         "ONEPAGE": "One Page",
         "NFTLANDING": "NFT Landing",
-        "JOB": "Job"
+        "JOB": "Job",
+        "KEVIN_HOME": "Kevin Home"
       }
     },
     "COMPONENTS": {

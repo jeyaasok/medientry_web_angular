@@ -891,6 +891,12 @@ export const MENU: MenuItem[] = [
         link: '/landing/job',
         parentId: 84,
       },
+      {
+        id: 88,
+        label: 'MENUITEMS.LANDING.LIST.KEVIN_HOME',
+        link: '/landing/kevin-home',
+        parentId: 84,
+      },
     ]
   },
   {
