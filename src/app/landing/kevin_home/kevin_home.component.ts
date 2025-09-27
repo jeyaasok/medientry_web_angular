@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import lottie from 'lottie-web';
@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
     templateUrl: './kevin_home.component.html',
     styleUrls: ['./kevin_home.component.scss'],
     standalone: true,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
     imports: [
         CommonModule,
         FormsModule,
@@ -54,14 +55,7 @@ export class KevinHomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Load and play the Lottie animation
-    lottie.loadAnimation({
-      container: this.animationContainer.nativeElement,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/animations/contact-phone.json'
-    });
+    // The dotlottie-wc web component will handle the animation automatically
   }
 
   // Custom email validator

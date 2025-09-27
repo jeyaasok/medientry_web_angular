@@ -29,6 +29,23 @@
     }
 }
 
+// Animation styles
+.lottie-container {
+    background-color: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    dotlottie-wc {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
 // Animation keyframes
 @keyframes slideIn {
     from {
