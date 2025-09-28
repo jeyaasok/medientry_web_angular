@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import lottie from 'lottie-web';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbCollapseModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule, NgbToastModule, NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { SharedModule } from '../../shared/shared.module';
 import { RouterModule } from '@angular/router';
@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
         ReactiveFormsModule,
         NgbCollapseModule,
         NgbToastModule,
+        NgbModalModule,
         ScrollToModule,
         SharedModule,
         RouterModule
@@ -28,6 +29,7 @@ import { RouterModule } from '@angular/router';
 })
 export class KevinHomeComponent implements OnInit, AfterViewInit {
   @ViewChild('animationContainer') animationContainer!: ElementRef;
+  @ViewChild('howToStartModal') howToStartModal: any;
 
   currentSection = 'home';
   public isCollapsed = true;
@@ -40,7 +42,8 @@ export class KevinHomeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private modalService: NgbModal
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')]],
@@ -52,6 +55,15 @@ export class KevinHomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // Initialize component
+  }
+
+  // Open How to Start Modal
+  openHowToStartModal() {
+    this.modalService.open(this.howToStartModal, { 
+      size: 'lg',
+      centered: true,
+      scrollable: true
+    });
   }
 
   ngAfterViewInit() {
