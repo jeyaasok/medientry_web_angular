@@ -1,3 +1,19 @@
+:host {
+    .inquiry-box {
+        left: -30px !important;
+        top: 90px;
+    }
+    .application-box {
+        bottom: 50px;
+        right: -130px;
+    }
+
+    .job-hero-section {
+        overflow: visible;
+        min-height: auto;
+    }
+}
+
 // Form styling
 .contact-form {
     .form-label {
@@ -15,11 +31,22 @@
             border-radius: 8px 0 0 8px;
             border: 1px solid #ced4da;
             background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+
+            i {
+                font-size: 1.1rem;
+            }
         }
 
         .form-control {
             border-radius: 0 8px 8px 0;
             border: 1px solid #ced4da;
+            padding: 0.5rem 1rem;
+            height: auto;
 
             &:focus {
                 box-shadow: none;
