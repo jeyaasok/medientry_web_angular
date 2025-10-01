@@ -1,0 +1,714 @@
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <!-- Begin page -->
+    <div class="layout-wrapper landing">
+        <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar"
+            (window:scroll)="windowScroll()">
+            <div class="container-fluid custom-container">
+                <a class="navbar-brand" routerLink="">
+                    <img src="assets/images/logo.png" alt="MediEntry" height="40" class="logo-dark">
+                    <img src="assets/images/logo.png" alt="MediEntry" height="40" class="logo-light">
+                </a>
+                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation" (click)="collapse.toggle()">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+
+                <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
+                        <li class="nav-item">
+                            <a class="nav-link fs-14 active" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'hero'}" [ngxScrollTo]="'#hero'">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'features'}"
+                                [ngxScrollTo]="'#features'">Why Join Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'howitworks'}"
+                                [ngxScrollTo]="'#howitworks'">Get Started</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'benefits'}" 
+                                [ngxScrollTo]="'#benefits'">Requirements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'contact'}"
+                                [ngxScrollTo]="'#contact'">Contact Us</a>
+                        </li>
+                    </ul>
+
+                    <div class="">
+                        <a href="#" class="btn btn-primary">
+                            <i class="ri-download-cloud-line align-bottom me-1"></i> Download Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- end navbar -->
+
+        <!-- start hero section -->
+        <section class="section job-hero-section bg-light pb-0" id="hero">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-6">
+                        <div>
+                            <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base">Join Our Virtual Team as<br>Data Entry Specialist</h1>
+                            <p class="lead text-muted lh-base mb-4">Join MediEntry's team of data entry specialists. Earn competitive pay while working flexibly from home, contributing to healthcare efficiency.</p>
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-primary btn-lg me-3">
+                                    <i class="ri-download-cloud-line align-middle me-1"></i> Download Now
+                                </a>
+                                <button class="btn btn-light btn-lg" (click)="openHowToStartModal()">
+                                    <i class="ri-information-line align-middle me-1"></i> How to Start
+                                </button>
+                            </div>
+
+                            <!-- How to Start Modal -->
+                            <ng-template #howToStartModal let-modal>
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="howToStartModalLabel">How to Start Working with MediEntry</h5>
+                                            <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="getting-started-steps">
+                                                <!-- Download -->
+                                                <div class="step-item mb-4">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
+                                                            <i class="ri-download-cloud-line fs-4"></i>
+                                                        </div>
+                                                        <h5 class="mb-0">Download & Install Application</h5>
+                                                    </div>
+                                                    <p class="text-muted ms-5">Download the MediEntry application from the download button above. The application will be configured to your system's IP address for security.</p>
+                                                    <div class="alert alert-info ms-5">
+                                                        <i class="ri-information-line me-2"></i>
+                                                        Your profile will be locked to your system to prevent unauthorized access
+                                                    </div>
+                                                </div>
+
+                                                <!-- Profile Setup -->
+                                                <div class="step-item mb-4">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
+                                                            <i class="ri-user-settings-line fs-4"></i>
+                                                        </div>
+                                                        <h5 class="mb-0">Complete Your Profile</h5>
+                                                    </div>
+                                                    <p class="text-muted ms-5">Fill in your personal details and professional information to create your profile.</p>
+                                                </div>
+
+                                                <!-- Agreement & Payment -->
+                                                <div class="step-item mb-4">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
+                                                            <i class="ri-secure-payment-line fs-4"></i>
+                                                        </div>
+                                                        <h5 class="mb-0">Accept Agreement & Make Payment</h5>
+                                                    </div>
+                                                    <p class="text-muted ms-5">Review and accept the work agreement, then complete the payment for 11 slots through our secure payment portal.</p>
+                                                    <div class="alert alert-success ms-5">
+                                                        <i class="ri-shield-check-line me-2"></i>
+                                                        Slots are activated immediately after successful payment
+                                                    </div>
+                                                </div>
+
+                                                <!-- Start Working -->
+                                                <div class="step-item mb-4">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
+                                                            <i class="ri-task-line fs-4"></i>
+                                                        </div>
+                                                        <h5 class="mb-0">Begin Working</h5>
+                                                    </div>
+                                                    <p class="text-muted ms-5">Start processing forms immediately after slot activation. Each slot contains 2000 forms.</p>
+                                                </div>
+
+                                                <!-- Important Information -->
+                                                <div class="important-info mt-4">
+                                                    <h6 class="mb-3">Important Information:</h6>
+                                                    <ul class="list-unstyled">
+                                                        <li class="mb-2">
+                                                            <i class="ri-check-line text-success me-2"></i>
+                                                            Verification completed within 7 business days
+                                                        </li>
+                                                        <li class="mb-2">
+                                                            <i class="ri-check-line text-success me-2"></i>
+                                                            Payments processed on 15th and 30th of each month
+                                                        </li>
+                                                        <li class="mb-2">
+                                                            <i class="ri-check-line text-success me-2"></i>
+                                                            Maximum 500 forms can be omitted across all slots
+                                                        </li>
+                                                        <li class="mb-2">
+                                                            <i class="ri-check-line text-success me-2"></i>
+                                                            Payment varies based on accuracy (₹10 to ₹2.50 per form)
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+                                            <a href="#" class="btn btn-primary">
+                                                <i class="ri-download-cloud-line me-1"></i> Download Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="ri-computer-line text-primary fs-3 me-2"></i>
+                                            <div>
+                                                <h6 class="mb-0">Work From Home</h6>
+                                                <small class="text-muted">Flexible Hours</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="ri-money-dollar-circle-line text-primary fs-3 me-2"></i>
+                                            <div>
+                                                <h6 class="mb-0">Semi-monthly</h6>
+                                                <small class="text-muted">Payments</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="d-flex align-items-center">
+                                            <i class="ri-file-list-3-line text-primary fs-3 me-2"></i>
+                                            <div>
+                                                <h6 class="mb-0">11 Work Slots</h6>
+                                                <small class="text-muted">2000 Forms/Slot</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative home-img text-center mt-5 mt-lg-0">
+                            <div class="card p-3 rounded shadow-lg inquiry-box">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-sm flex-shrink-0 me-3">
+                                        <div class="avatar-title bg-primary-subtle text-primary rounded fs-18">
+                                            <i class="ri-file-text-line"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="fs-15 lh-base mb-0">Easy work from home Data Entry</h5>
+                                </div>
+                            </div>
+
+                            <div class="card p-3 rounded shadow-lg application-box">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-sm flex-shrink-0 me-3">
+                                        <div class="avatar-title bg-success-subtle text-success rounded fs-18">
+                                            <i class="ri-money-dollar-box-line"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="fs-15 lh-base mb-0">Semi-monthly payments</h5>
+                                </div>
+                            </div>
+
+                            <!-- You might want to replace this image with a screenshot of your MediEntry application -->
+                            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+                            <dotlottie-wc src="https://lottie.host/bdd9d7e3-f970-4e70-af41-8ea6730678e0/98EPpvmUN2.lottie" style="width: 500px;height: 500px" autoplay loop></dotlottie-wc>
+                            <div class="circle-effect">
+                                <div class="circle"></div>
+                                <div class="circle2"></div>
+                                <div class="circle3"></div>
+                                <div class="circle4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end hero section -->
+
+        <!-- Features Section -->
+        <section class="section bg-light" id="features">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Why Join MediEntry?</h2>
+                            <p class="text-muted">Join our growing team of remote medical form entry specialists and enjoy these great benefits</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="avatar-sm flex-shrink-0">
+                                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-1">
+                                            <i class="ri-calendar-line"></i>
+                                        </div>
+                                    </div>
+                                    <div class="ms-3 text-start">
+                                        <h5 class="mb-1">11 Slots Contract</h5>
+                                        <p class="text-muted mb-0">Fixed Work Distribution</p>
+                                    </div>
+                                </div>
+                                <div class="agreement-details text-start">
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold">
+                                            <i class="ri-file-list-3-line me-2 text-primary"></i>
+                                            Slot Quota
+                                        </h6>
+                                        <p class="text-muted mb-0 ps-4">2,000 forms per slot fixed quota</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold">
+                                            <i class="ri-time-line me-2 text-primary"></i>
+                                            Completion Period
+                                        </h6>
+                                        <p class="text-muted mb-0 ps-4">Each slot must be completed within its assigned period</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold">
+                                            <i class="ri-error-warning-line me-2 text-primary"></i>
+                                            Omission Allowance
+                                        </h6>
+                                        <p class="text-muted mb-0 ps-4">Maximum 500 forms can be omitted across all 11 slots</p>
+                                    </div>
+                                    <div class="alert alert-warning mb-0">
+                                        <small>
+                                            <i class="ri-alert-line me-2"></i>
+                                            Exceeding 500 form omissions across all slots will result in contract termination
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="avatar-sm mx-auto mb-4">
+                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-1">
+                                        <i class="ri-bank-card-line"></i>
+                                    </div>
+                                </div>
+                                <h5>Performance-Based Pay</h5>
+                                <p class="text-muted">Earn up to ₹10 per form based on accuracy. Payments processed twice monthly.</p>
+                                <div class="payment-rates mt-3">
+                                    <div class="d-flex align-items-center mb-2 py-2 border-bottom">
+                                        <div class="badge bg-success rounded-pill me-2">0 errors</div>
+                                        <div class="ms-auto fw-bold">₹10.00 per form</div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2 py-2 border-bottom">
+                                        <div class="badge bg-info rounded-pill me-2">1 error</div>
+                                        <div class="ms-auto fw-bold">₹7.50 per form</div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2 py-2 border-bottom">
+                                        <div class="badge bg-warning rounded-pill me-2">2 errors</div>
+                                        <div class="ms-auto fw-bold">₹5.00 per form</div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2 py-2 border-bottom">
+                                        <div class="badge bg-danger rounded-pill me-2">3 errors</div>
+                                        <div class="ms-auto fw-bold">₹2.50 per form</div>
+                                    </div>
+                                    <div class="d-flex align-items-center py-2">
+                                        <div class="badge bg-dark rounded-pill me-2">3+ errors</div>
+                                        <div class="ms-auto fw-bold text-danger">No payment</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="avatar-sm flex-shrink-0">
+                                        <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-1">
+                                            <i class="ri-shield-check-line"></i>
+                                        </div>
+                                    </div>
+                                    <div class="ms-3 text-start">
+                                        <h5 class="mb-1">Verification & Payment</h5>
+                                        <p class="text-muted mb-0">Quality Assurance Process</p>
+                                    </div>
+                                </div>
+                                <div class="verification-details text-start">
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold">
+                                            <i class="ri-time-line me-2 text-primary"></i>
+                                            Verification Timeline
+                                        </h6>
+                                        <ul class="list-unstyled text-muted ps-4 mb-0">
+                                            <li><i class="ri-checkbox-circle-line me-2"></i>7 business days for verification</li>
+                                            <li><i class="ri-checkbox-circle-line me-2"></i>Quality check on all submissions</li>
+                                        </ul>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold">
+                                            <i class="ri-bank-card-line me-2 text-primary"></i>
+                                            Payment Schedule
+                                        </h6>
+                                        <ul class="list-unstyled text-muted ps-4 mb-0">
+                                            <li><i class="ri-calendar-check-line me-2"></i>15th of every month</li>
+                                            <li><i class="ri-calendar-check-line me-2"></i>30th of every month</li>
+                                        </ul>
+                                    </div>
+                                    <div class="verification-alerts mt-3">
+                                        <div class="alert alert-info mb-2">
+                                            <small>
+                                                <i class="ri-information-line me-2"></i>
+                                                Forms are verified within 7 business days of submission
+                                            </small>
+                                        </div>
+                                        <div class="alert alert-success mb-2">
+                                            <small>
+                                                <i class="ri-money-dollar-circle-line me-2"></i>
+                                                Payments for verified forms processed on 15th and 30th
+                                            </small>
+                                        </div>
+                                        <div class="alert alert-warning mb-0">
+                                            <small>
+                                                <i class="ri-alert-line me-2"></i>
+                                                Only verified submissions will be included in payment cycles
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section class="section" id="howitworks">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">How to Get Started</h2>
+                            <p class="text-muted">Join our team in just a few simple steps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="text-center process-item">
+                            <div class="avatar-md mx-auto mb-4">
+                                <div class="avatar-title bg-primary rounded-circle">
+                                    <h3 class="mb-0 text-white">1</h3>
+                                </div>
+                            </div>
+                            <h5>Download & Install</h5>
+                            <p class="text-muted">Download and install the MediEntry application on your system</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="text-center process-item">
+                            <div class="avatar-md mx-auto mb-4">
+                                <div class="avatar-title bg-primary rounded-circle">
+                                    <h3 class="mb-0 text-white">2</h3>
+                                </div>
+                            </div>
+                            <h5>Setup Profile</h5>
+                            <p class="text-muted">Complete your profile and system verification</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="text-center process-item">
+                            <div class="avatar-md mx-auto mb-4">
+                                <div class="avatar-title bg-primary rounded-circle">
+                                    <h3 class="mb-0 text-white">3</h3>
+                                </div>
+                            </div>
+                            <h5>Make Payment</h5>
+                            <p class="text-muted">Pay for 11 slots through secure payment portal</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="text-center process-item">
+                            <div class="avatar-md mx-auto mb-4">
+                                <div class="avatar-title bg-primary rounded-circle">
+                                    <h3 class="mb-0 text-white">4</h3>
+                                </div>
+                            </div>
+                            <h5>Start Working</h5>
+                            <p class="text-muted">Begin processing forms immediately after activation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section bg-light" id="benefits">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Requirements & Qualifications</h2>
+                            <p class="text-muted">What you need to succeed as a Medical Form Entry Specialist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h4 class="mb-4">Contract Requirements</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-3">
+                                        <i class="ri-checkbox-circle-line text-primary me-2"></i>
+                                        Complete 11 slots with 2000 forms per slot
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="ri-checkbox-circle-line text-primary me-2"></i>
+                                        Maximum 500 forms can be omitted total
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="ri-checkbox-circle-line text-primary me-2"></i>
+                                        Maintain high accuracy in form completion
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="ri-checkbox-circle-line text-primary me-2"></i>
+                                        Computer with stable internet connection
+                                    </li>
+                                    <li>
+                                        <i class="ri-checkbox-circle-line text-primary me-2"></i>
+                                        Meet monthly completion targets
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h4 class="mb-4">Payment & Quality Guidelines</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-3">
+                                        <i class="ri-money-dollar-circle-line text-success me-2"></i>
+                                        Maximum rate of ₹10 per error-free form
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="ri-timer-line text-primary me-2"></i>
+                                        7-15 working days verification period
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="ri-calendar-check-line text-primary me-2"></i>
+                                        Bi-monthly payments (15th & 30th)
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="ri-error-warning-line text-danger me-2"></i>
+                                        No payment for unverified submissions
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="ri-error-warning-line text-danger me-2"></i>
+                                        Forms with 3+ errors are not paid
+                                    </li>
+                                    <li>
+                                        <i class="ri-shield-cross-line text-danger me-2"></i>
+                                        Contract termination if over 500 forms missed
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Get in Touch</h2>
+                            <p class="text-muted">Have questions? We're here to help you get started with MediEntry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <!-- Animation Column -->
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <div class="lottie-container position-relative mx-auto mb-4" style="max-width: min(90%, 600px);">
+                                <dotlottie-wc 
+                                    src="https://lottie.host/78feb7e5-b816-41fb-b481-e46cb44f9959/I8OW1QRfhi.lottie" 
+                                    style="width: 100%; height: auto; aspect-ratio: 1/1;"
+                                    autoplay 
+                                    loop
+                                    mode="normal"
+                                    speed="1"
+                                ></dotlottie-wc>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Form Column -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-lg">
+                            <div class="card-body p-4">
+                                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+                                    <div class="mb-4">
+                                        <label for="name" class="form-label fw-medium">Full Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light">
+                                                <i class="ri-user-line text-muted"></i>
+                                            </span>
+                                            <input type="text" 
+                                                class="form-control" 
+                                                [ngClass]="{'is-invalid': contactForm.get('name')?.touched && contactForm.get('name')?.invalid,
+                                                          'is-valid': contactForm.get('name')?.valid}"
+                                                id="name" 
+                                                formControlName="name" 
+                                                placeholder="Enter your name">
+                                        </div>
+                                        <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('name')}}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="mobile" class="form-label fw-medium">Mobile Number</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light">
+                                                <i class="ri-phone-line text-muted"></i>
+                                            </span>
+                                            <input type="tel" 
+                                                class="form-control" 
+                                                [ngClass]="{'is-invalid': contactForm.get('mobile')?.touched && contactForm.get('mobile')?.invalid,
+                                                          'is-valid': contactForm.get('mobile')?.valid}"
+                                                id="mobile" 
+                                                formControlName="mobile" 
+                                                placeholder="Enter your mobile number">
+                                        </div>
+                                        <div *ngIf="contactForm.get('mobile')?.touched && contactForm.get('mobile')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('mobile')}}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="email" class="form-label fw-medium">Email Address</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light">
+                                                <i class="ri-mail-line text-muted"></i>
+                                            </span>
+                                            <input type="email" 
+                                                class="form-control" 
+                                                [ngClass]="{'is-invalid': contactForm.get('email')?.touched && contactForm.get('email')?.invalid,
+                                                          'is-valid': contactForm.get('email')?.valid}"
+                                                id="email" 
+                                                formControlName="email" 
+                                                placeholder="Enter your email">
+                                        </div>
+                                        <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('email')}}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="reason" class="form-label fw-medium">Reason for Contact</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light">
+                                                <i class="ri-message-2-line text-muted"></i>
+                                            </span>
+                                            <textarea class="form-control" 
+                                                [ngClass]="{'is-invalid': contactForm.get('reason')?.touched && contactForm.get('reason')?.invalid,
+                                                          'is-valid': contactForm.get('reason')?.valid}"
+                                                id="reason" 
+                                                formControlName="reason" 
+                                                rows="4" 
+                                                placeholder="Tell us how we can help"></textarea>
+                                        </div>
+                                        <div *ngIf="contactForm.get('reason')?.touched && contactForm.get('reason')?.invalid" 
+                                            class="text-danger small mt-1">
+                                            {{getErrorMessage('reason')}}
+                                        </div>
+                                        <small class="text-muted">{{contactForm.get('reason')?.value?.length || 0}}/500 characters</small>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <button type="submit" 
+                                            class="btn btn-primary btn-lg px-4" 
+                                            [disabled]="contactForm.invalid || isSubmitting">
+                                            <i class="ri-send-plane-fill me-1"></i>
+                                            <span *ngIf="!isSubmitting">Send Message</span>
+                                            <span *ngIf="isSubmitting">
+                                                <i class="ri-loader-4-line animate-spin"></i> Sending...
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toast Notification -->
+                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050">
+                        <div *ngIf="showToast" 
+                            class="toast show" 
+                            [ngClass]="{'bg-success text-white': toastType === 'success', 
+                                       'bg-danger text-white': toastType === 'error'}"
+                            role="alert" 
+                            aria-live="assertive" 
+                            aria-atomic="true">
+                            <div class="toast-header border-0" 
+                                [ngClass]="{'bg-success text-white': toastType === 'success', 
+                                           'bg-danger text-white': toastType === 'error'}">
+                                <i class="me-2" 
+                                   [ngClass]="{'ri-check-line': toastType === 'success', 
+                                             'ri-error-warning-line': toastType === 'error'}"></i>
+                                <strong class="me-auto">{{toastType === 'success' ? 'Success' : 'Error'}}</strong>
+                                <button type="button" 
+                                    class="btn-close btn-close-white" 
+                                    (click)="showToast = false">
+                                </button>
+                            </div>
+                            <div class="toast-body">
+                                {{toastMessage}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mt-5 mb-2">
+                            <p class="mb-0">&copy; {{currentYear}} MediEntry. All rights reserved.</p>
+                            <small class="mb-0">Design & Develop by <a href="https://techjobind.com" target="_blank">TechJOBInd</a>.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--start back-to-top-->
+        <button (click)="topFunction()" class="btn btn-primary btn-icon landing-back-top" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+        <!--end back-to-top-->
+
+    </div>
+    <!-- end layout wrapper -->
+</div>

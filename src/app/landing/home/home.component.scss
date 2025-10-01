@@ -1,0 +1,153 @@
+:host {
+    .inquiry-box {
+        left: -30px !important;
+        top: 90px;
+    }
+    .application-box {
+        bottom: 50px;
+        right: -130px;
+    }
+
+    .job-hero-section {
+        overflow: visible;
+        min-height: auto;
+    }
+}
+
+// Form styling
+.contact-form {
+    .form-label {
+        color: #495057;
+    }
+
+    .input-group {
+        transition: all 0.3s ease;
+
+        &:focus-within {
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+        }
+
+        .input-group-text {
+            border-radius: 8px 0 0 8px;
+            border: 1px solid #ced4da;
+            background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+
+            i {
+                font-size: 1.1rem;
+            }
+        }
+
+        .form-control {
+            border-radius: 0 8px 8px 0;
+            border: 1px solid #ced4da;
+            padding: 0.5rem 1rem;
+            height: auto;
+
+            &:focus {
+                box-shadow: none;
+                border-color: #86b7fe;
+            }
+        }
+    }
+}
+
+// Animation styles
+.lottie-container {
+    background-color: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    dotlottie-wc {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+// Animation keyframes
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Toast styling
+.toast {
+    animation: slideIn 0.3s ease-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    .toast-header {
+        border-bottom: none;
+        padding: 0.75rem 1rem;
+    }
+}
+
+// Loading spinner animation
+.animate-spin {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+// Form validation styles
+.form-control {
+    &.is-invalid {
+        background-image: none;
+    }
+    
+    &.is-valid {
+        background-image: none;
+    }
+}
+
+// Button hover effect
+.btn-primary {
+    transition: all 0.3s ease;
+    
+    &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:disabled {
+        opacity: 0.7;
+    }
+}
+
+// Card hover effect
+.card {
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.footer {
+    width: calc(100vw - 80px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
