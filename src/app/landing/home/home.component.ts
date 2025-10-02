@@ -8,6 +8,7 @@ import { NgbCollapseModule, NgbToastModule, NgbModal, NgbModalModule } from '@ng
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { SharedModule } from '../../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @Component({
     selector: 'app-home',
@@ -24,7 +25,8 @@ import { RouterModule } from '@angular/router';
         NgbModalModule,
         ScrollToModule,
         SharedModule,
-        RouterModule
+        RouterModule,
+        CdkAccordionModule
     ]
 })
 export class HomeComponent implements OnInit, AfterViewInit {
@@ -39,6 +41,34 @@ export class HomeComponent implements OnInit, AfterViewInit {
   showToast = false;
   toastMessage = '';
   toastType: 'success' | 'error' = 'success';
+
+  faqs = [
+    {
+      id: 1,
+      question: 'What is the payment structure for form entry?',
+      expanded: true
+    },
+    {
+      id: 2,
+      question: 'How long does it take to complete one slot?',
+      expanded: false
+    },
+    {
+      id: 3,
+      question: 'When and how do I receive payments?',
+      expanded: false
+    },
+    {
+      id: 4,
+      question: 'What happens if I miss the slot deadline?',
+      expanded: false
+    },
+    {
+      id: 5,
+      question: 'Is there a minimum amount for withdrawal?',
+      expanded: false
+    }
+  ];
 
   constructor(
     private fb: FormBuilder,

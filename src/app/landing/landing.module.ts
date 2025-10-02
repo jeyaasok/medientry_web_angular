@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IndexComponent } from './index/index.component';
 
 import {
-  NgbCarouselModule, NgbTooltipModule, NgbCollapseModule
+  NgbCarouselModule, NgbTooltipModule, NgbCollapseModule, NgbAccordionModule
 } from '@ng-bootstrap/ng-bootstrap';
 
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
@@ -29,6 +29,7 @@ import { JobComponent } from './job/job.component';
     SharedModule,
     NgbTooltipModule,
     NgbCollapseModule,
+    NgbAccordionModule,
     ScrollToModule.forRoot(),
   ]
 })

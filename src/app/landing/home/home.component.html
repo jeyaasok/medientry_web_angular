@@ -5,8 +5,8 @@
             (window:scroll)="windowScroll()">
             <div class="container-fluid custom-container">
                 <a class="navbar-brand" routerLink="">
-                    <img src="assets/images/logo.png" alt="MediEntry" height="40" class="logo-dark">
-                    <img src="assets/images/logo.png" alt="MediEntry" height="40" class="logo-light">
+                    <img src="assets/images/logo.png" alt="MediEntry" height="40" class="logo-dark" loading="lazy">
+                    <img src="assets/images/logo.png" alt="MediEntry" height="40" class="logo-light" loading="lazy">
                 </a>
                 <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -22,6 +22,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'about'}"
+                                [ngxScrollTo]="'#about'">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
                                 [ngClass]="{'active':currentSection === 'features'}"
                                 [ngxScrollTo]="'#features'">Why Join Us</a>
                         </li>
@@ -34,6 +39,16 @@
                             <a class="nav-link fs-14" href="javascript:void(0);"
                                 [ngClass]="{'active':currentSection === 'benefits'}" 
                                 [ngxScrollTo]="'#benefits'">Requirements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'affiliation'}"
+                                [ngxScrollTo]="'#affiliation'">Affiliation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'faq'}"
+                                [ngxScrollTo]="'#faq'">FAQs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fs-14" href="javascript:void(0);"
@@ -223,7 +238,11 @@
 
                             <!-- You might want to replace this image with a screenshot of your MediEntry application -->
                             <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
-                            <dotlottie-wc src="https://lottie.host/bdd9d7e3-f970-4e70-af41-8ea6730678e0/98EPpvmUN2.lottie" style="width: 500px;height: 500px" autoplay loop></dotlottie-wc>
+                            <div class="responsive-animation-container">
+                                <dotlottie-wc src="https://lottie.host/bdd9d7e3-f970-4e70-af41-8ea6730678e0/98EPpvmUN2.lottie" 
+                                    class="responsive-animation"
+                                    autoplay loop></dotlottie-wc>
+                            </div>
                             <div class="circle-effect">
                                 <div class="circle"></div>
                                 <div class="circle2"></div>
@@ -236,6 +255,93 @@
             </div>
         </section>
         <!-- end hero section -->
+
+        <!-- About Us Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">About MediEntry</h2>
+                            <p class="text-muted">Leading the way in medical data digitization</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+                            <div class="responsive-animation-container about-animation">
+                                <dotlottie-wc src="https://lottie.host/8d7ccb32-7fcc-47ca-a08b-199b5bd51016/OeysSu2hkU.lottie" 
+                                    class="responsive-animation"
+                                    autoplay loop></dotlottie-wc>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content ps-4">
+                            <h3 class="mb-4">Transforming Healthcare Data Management</h3>
+                            <p class="text-muted">MediEntry is a pioneering platform that bridges the gap between paper-based medical records and digital healthcare systems. Our mission is to accelerate the digital transformation of healthcare while creating flexible work opportunities for individuals worldwide.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="avatar-xs flex-shrink-0 me-2">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-16">
+                                                    <i class="ri-check-line"></i>
+                                                </div>
+                                            </div>
+                                            <h5 class="fs-15 mb-0">Quality Focused</h5>
+                                        </div>
+                                        <p class="text-muted fs-14 mb-0">Rigorous verification process ensuring accuracy</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="avatar-xs flex-shrink-0 me-2">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-16">
+                                                    <i class="ri-shield-user-line"></i>
+                                                </div>
+                                            </div>
+                                            <h5 class="fs-15 mb-0">Secure Platform</h5>
+                                        </div>
+                                        <p class="text-muted fs-14 mb-0">Advanced security measures protecting sensitive data</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="avatar-xs flex-shrink-0 me-2">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-16">
+                                                    <i class="ri-team-line"></i>
+                                                </div>
+                                            </div>
+                                            <h5 class="fs-15 mb-0">Global Community</h5>
+                                        </div>
+                                        <p class="text-muted fs-14 mb-0">Connecting professionals worldwide</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="avatar-xs flex-shrink-0 me-2">
+                                                <div class="avatar-title bg-primary-subtle text-primary rounded-circle fs-16">
+                                                    <i class="ri-24-hours-line"></i>
+                                                </div>
+                                            </div>
+                                            <h5 class="fs-15 mb-0">Flexible Work</h5>
+                                        </div>
+                                        <p class="text-muted fs-14 mb-0">Work from anywhere, anytime</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Features Section -->
         <section class="section bg-light" id="features">
@@ -407,10 +513,9 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="text-center process-item">
-                            <div class="avatar-md mx-auto mb-4">
-                                <div class="avatar-title bg-primary rounded-circle">
-                                    <h3 class="mb-0 text-white">1</h3>
-                                </div>
+                            <div class="d-flex align-items-center justify-content-center mb-4" style="height: 80px;">
+                                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+                                <dotlottie-wc src="https://lottie.host/0e849f67-77d4-4cac-9e0c-69d0e151a93b/SQoIrAr2wg.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
                             <h5>Download & Install</h5>
                             <p class="text-muted">Download and install the MediEntry application on your system</p>
@@ -418,10 +523,9 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="text-center process-item">
-                            <div class="avatar-md mx-auto mb-4">
-                                <div class="avatar-title bg-primary rounded-circle">
-                                    <h3 class="mb-0 text-white">2</h3>
-                                </div>
+                            <div class="d-flex align-items-center justify-content-center mb-4" style="height: 80px;">
+                                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+                                <dotlottie-wc src="https://lottie.host/a7aed00e-4a57-4133-aae3-ee6470a7a34a/Ph2vtLZ0BB.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
                             <h5>Setup Profile</h5>
                             <p class="text-muted">Complete your profile and system verification</p>
@@ -429,10 +533,9 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="text-center process-item">
-                            <div class="avatar-md mx-auto mb-4">
-                                <div class="avatar-title bg-primary rounded-circle">
-                                    <h3 class="mb-0 text-white">3</h3>
-                                </div>
+                            <div class="d-flex align-items-center justify-content-center mb-4" style="height: 80px;">
+                                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+                                <dotlottie-wc src="https://lottie.host/bda46928-bf36-470b-9d76-97322d14277c/dIjETiNQAU.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
                             <h5>Make Payment</h5>
                             <p class="text-muted">Pay for 11 slots through secure payment portal</p>
@@ -440,10 +543,9 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="text-center process-item">
-                            <div class="avatar-md mx-auto mb-4">
-                                <div class="avatar-title bg-primary rounded-circle">
-                                    <h3 class="mb-0 text-white">4</h3>
-                                </div>
+                            <div class="d-flex align-items-center justify-content-center mb-4" style="height: 80px;">
+                                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+                                <dotlottie-wc src="https://lottie.host/0c7975ac-ce7e-4d5f-9bd4-887e74f80d23/ygsKWnukrU.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
                             <h5>Start Working</h5>
                             <p class="text-muted">Begin processing forms immediately after activation</p>
@@ -531,6 +633,144 @@
             </div>
         </section>
 
+        <!-- Affiliation Program Section -->
+        <section class="section" id="affiliation">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Affiliation Program</h2>
+                            <p class="text-muted">Refer friends and earn rewards together</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="benefit-item existing-member">
+                            <div class="icon-wrapper">
+                                <i class="ri-gift-line"></i>
+                            </div>
+                            <div class="content">
+                                <h5>For Existing Members</h5>
+                                <p>Share your success and earn ₹1,000 for each successful referral. No limit on referrals!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="benefit-item new-member">
+                            <div class="icon-wrapper">
+                                <i class="ri-user-received-line"></i>
+                            </div>
+                            <div class="content">
+                                <h5>For New Members</h5>
+                                <p>Get ₹500 instant discount on slot purchase when you join using a referral code.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="benefit-item quick-rewards">
+                            <div class="icon-wrapper">
+                                <i class="ri-bank-card-line"></i>
+                            </div>
+                            <div class="content">
+                                <h5>Quick Rewards</h5>
+                                <p>Referral rewards are instantly added to your withdrawal balance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section bg-light" id="faq">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Frequently Asked Questions</h2>
+                            <p class="text-muted">Find answers to common questions about working with MediEntry</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <cdk-accordion class="custom-accordion">
+                            @for (faq of faqs; track faq) {
+                            <cdk-accordion-item #accordionItem="cdkAccordionItem" class="accordion-item">
+                                <button class="accordion-button" 
+                                        (click)="accordionItem.toggle()"
+                                        [class.collapsed]="!accordionItem.expanded"
+                                        [attr.aria-expanded]="accordionItem.expanded"
+                                        [attr.aria-controls]="'accordion-body-' + faq.id">
+                                    {{faq.question}}
+                                </button>
+                                
+                                @if(accordionItem.expanded) {
+                                <div class="accordion-collapse show"
+                                     role="region"
+                                     [attr.id]="'accordion-body-' + faq.id">
+                                    <div class="accordion-body">
+                                        @if(faq.id === 1) {
+                                        <div>
+                                            Our payment structure is performance-based. You can earn up to ₹10 per form based on accuracy:
+                                            <ul class="list-unstyled mt-2">
+                                                <li><i class="ri-checkbox-circle-line text-success me-2"></i>₹10 per form with no errors</li>
+                                                <li><i class="ri-checkbox-circle-line text-info me-2"></i>₹7.50 per form with 1 error</li>
+                                                <li><i class="ri-checkbox-circle-line text-warning me-2"></i>₹5.00 per form with 2 errors</li>
+                                                <li><i class="ri-checkbox-circle-line text-danger me-2"></i>₹2.50 per form with 3 errors</li>
+                                            </ul>
+                                        </div>
+                                        }
+                                        
+                                        @if(faq.id === 2) {
+                                        <div>
+                                            The time to complete one slot (2,000 forms) varies based on your typing speed and familiarity with the system. 
+                                            On average, experienced data entry specialists complete one slot in 15-20 days working 3-4 hours daily.
+                                        </div>
+                                        }
+                                        
+                                        @if(faq.id === 3) {
+                                        <div>
+                                            Payments are processed twice monthly, on the 15th and 30th of each month. 
+                                            The verification process takes 7-15 working days. Once verified, payments are automatically 
+                                            transferred to your registered bank account.
+                                        </div>
+                                        }
+                                        
+                                        @if(faq.id === 4) {
+                                        <div>
+                                            You can omit up to 500 forms across all 11 slots without penalty. 
+                                            However, exceeding this limit may result in contract termination. 
+                                            It's important to maintain a consistent work schedule to meet deadlines.
+                                        </div>
+                                        }
+                                        
+                                        @if(faq.id === 5) {
+                                        <div>
+                                            Yes, you can only withdraw your earnings to your bank account after your wallet balance reaches a minimum of ₹1000. 
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+                                }
+                            </cdk-accordion-item>
+                            }
+                        </cdk-accordion>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="text-center">
+                            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+                            <dotlottie-wc src="https://lottie.host/a66e73ca-dc67-41bf-bad8-2b222722aceb/z4lKNiTzJ4.lottie" style="width: 600px;height: 600px" autoplay loop></dotlottie-wc>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="section" id="contact">
             <div class="container">
@@ -544,17 +784,81 @@
                 </div>
                 <div class="row align-items-center">
                     <!-- Animation Column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="text-center">
-                            <div class="lottie-container position-relative mx-auto mb-4" style="max-width: min(90%, 600px);">
+                            <!-- <div class="lottie-container position-relative mx-auto mb-4" style="max-width: min(90%, 600px);">
                                 <dotlottie-wc 
                                     src="https://lottie.host/78feb7e5-b816-41fb-b481-e46cb44f9959/I8OW1QRfhi.lottie" 
-                                    style="width: 100%; height: auto; aspect-ratio: 1/1;"
+                                    style="width: 100%; height: 300px; aspect-ratio: 1/1;"
                                     autoplay 
                                     loop
                                     mode="normal"
                                     speed="1"
                                 ></dotlottie-wc>
+                            </div> -->
+                            <div class="contact-info">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100 bg-primary-subtle hover-primary rounded-4">
+                                            <div class="card-body p-4 d-flex flex-column justify-content-center align-items-center">
+                                                <div class="text-center">
+                                                    <div class="avatar-sm mx-auto mb-3">
+                                                        <div class="avatar-title bg-primary text-white rounded-circle fs-4">
+                                                            <i class="ri-map-pin-line"></i>
+                                                        </div>
+                                                    </div>
+                                                    <h5 class="mb-3 text-primary">Our Location</h5>
+                                                    <p class="text-muted mb-0 text-center small">57, Thulasiram Street, Meenakshi Nagar, Madurai - 625012, Tamil Nadu, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100 bg-primary-subtle hover-primary rounded-4">
+                                            <div class="card-body p-4 d-flex flex-column justify-content-center align-items-center">
+                                                <div class="text-center">
+                                                    <div class="avatar-sm mx-auto mb-3">
+                                                        <div class="avatar-title bg-primary text-white rounded-circle fs-4">
+                                                            <i class="ri-mail-line"></i>
+                                                        </div>
+                                                    </div>
+                                                    <h5 class="mb-3 text-primary">Email Us</h5>
+                                                    <a href="mailto:support&#64;medientry.co.in" class="text-muted mb-0 d-block small">support&#64;medientry.co.in</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100 bg-primary-subtle hover-primary rounded-4">
+                                            <div class="card-body p-4 d-flex flex-column justify-content-center align-items-center">
+                                                <div class="text-center">
+                                                    <div class="avatar-sm mx-auto mb-3">
+                                                        <div class="avatar-title bg-primary text-white rounded-circle fs-4">
+                                                            <i class="ri-global-line"></i>
+                                                        </div>
+                                                    </div>
+                                                    <h5 class="mb-3 text-primary">Website</h5>
+                                                    <a href="http://www.medientry.co.in" target="_blank" class="text-muted mb-0 d-block small">www.medientry.co.in</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm h-100 bg-primary-subtle hover-primary rounded-4">
+                                            <div class="card-body p-4 d-flex flex-column justify-content-center align-items-center">
+                                                <div class="text-center">
+                                                    <div class="avatar-sm mx-auto mb-3">
+                                                        <div class="avatar-title bg-primary text-white rounded-circle fs-4">
+                                                            <i class="ri-phone-line"></i>
+                                                        </div>
+                                                    </div>
+                                                    <h5 class="mb-3 text-primary">Call Us</h5>
+                                                    <a href="tel:+919488832210" class="text-muted mb-0 d-block small">+91-94888 32210</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -690,13 +994,13 @@
             </div>
         </section>
 
+        <!-- Footer -->
         <footer class="footer">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="text-center mt-5 mb-2">
+                        <div class="text-center mt-5 mb-5">
                             <p class="mb-0">&copy; {{currentYear}} MediEntry. All rights reserved.</p>
-                            <small class="mb-0">Design & Develop by <a href="https://techjobind.com" target="_blank">TechJOBInd</a>.</small>
                         </div>
                     </div>
                 </div>
