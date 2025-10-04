@@ -10,6 +10,19 @@ import { SharedModule } from '../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 
+interface YouTubeVideo {
+  id: string;
+  title: string;
+  thumbnailUrl: string;
+}
+
+interface GalleryImage {
+  url: string;
+  title: string;
+  description?: string;
+  category: 'workspace' | 'team' | 'success';
+}
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -32,15 +45,100 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('animationContainer') animationContainer!: ElementRef;
   @ViewChild('howToStartModal') howToStartModal: any;
+  @ViewChild('videoContainer') videoContainer!: ElementRef;
   
   currentSection = 'home';
   public isCollapsed = true;
   currentYear: number = new Date().getFullYear();
+  
+  youtubeVideos: YouTubeVideo[] = [
+    {
+      id: 'VIDEO_ID_1',
+      title: 'How to Get Started with Medical Form Entry',
+      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg`
+    },
+    {
+      id: 'VIDEO_ID_2',
+      title: 'Medical Entry Work Process Explained',
+      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg`
+    },
+    {
+      id: 'VIDEO_ID_3',
+      title: 'Tips for Accurate Medical Data Entry',
+      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg`
+    },
+    {
+      id: 'VIDEO_ID_4',
+      title: 'Earning Potential in Medical Entry Work',
+      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_4/maxresdefault.jpg`
+    },
+    {
+      id: 'VIDEO_ID_5',
+      title: 'Success Stories from Our Members',
+      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_5/maxresdefault.jpg`
+    }
+  ];
+
+  galleryImages: GalleryImage[] = [
+    {
+      url: 'assets/images/gallery/workspace-1.jpg',
+      title: 'Modern Home Office Setup',
+      description: 'Comfortable workspace for efficient data entry',
+      category: 'workspace'
+    },
+    {
+      url: 'assets/images/gallery/workspace-2.jpg',
+      title: 'Dual Monitor Setup',
+      description: 'Enhanced productivity with multi-screen setup',
+      category: 'workspace'
+    },
+    {
+      url: 'assets/images/gallery/team-1.jpg',
+      title: 'Support Team',
+      description: 'Our dedicated customer support team',
+      category: 'team'
+    },
+    {
+      url: 'assets/images/gallery/team-2.jpg',
+      title: 'Training Session',
+      description: 'Online training and skill development',
+      category: 'team'
+    },
+    {
+      url: 'assets/images/gallery/success-1.jpg',
+      title: 'Top Performer Award',
+      description: 'Recognizing excellence in data entry',
+      category: 'success'
+    },
+    {
+      url: 'assets/images/gallery/success-2.jpg',
+      title: 'Team Achievement',
+      description: 'Celebrating milestones together',
+      category: 'success'
+    }
+  ];
+
+  selectedFilter: 'all' | 'workspace' | 'team' | 'success' = 'all';
+  selectedImage: GalleryImage | null = null;
   contactForm: FormGroup;
   isSubmitting = false;
   showToast = false;
   toastMessage = '';
   toastType: 'success' | 'error' = 'success';
+
+  // Dummy withdrawal data
+  withdrawals = [
+    { name: 'Ramesh Kumar', amount: 12500 },
+    { name: 'Priya Sharma', amount: 18750 },
+    { name: 'Arun Singh', amount: 15000 },
+    { name: 'Deepa Patel', amount: 11200 },
+    { name: 'Suresh Reddy', amount: 19800 },
+    { name: 'Meena Kumari', amount: 16400 },
+    { name: 'Raj Malhotra', amount: 13700 },
+    { name: 'Anita Desai', amount: 17900 },
+    { name: 'Vikram Mehta', amount: 14300 },
+    { name: 'Sunita Verma', amount: 16800 }
+  ];
 
   faqs = [
     {
@@ -83,8 +181,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
+  filterGallery(category: 'all' | 'workspace' | 'team' | 'success'): void {
+    this.selectedFilter = category;
+  }
+
+  getFilteredImages(): GalleryImage[] {
+    return this.selectedFilter === 'all' 
+      ? this.galleryImages 
+      : this.galleryImages.filter(img => img.category === this.selectedFilter);
+  }
+
+  openImageModal(image: GalleryImage): void {
+    this.selectedImage = image;
+  }
+
+  closeImageModal(): void {
+    this.selectedImage = null;
+  }
+
   ngOnInit(): void {
     // Initialize component
+  }
+
+  ngOnDestroy(): void {
+    // Component cleanup
   }
 
   // Open How to Start Modal
