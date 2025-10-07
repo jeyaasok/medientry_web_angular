@@ -1,0 +1,238 @@
+<div class="modal-header">
+  <h5 class="modal-title">Terms & Conditions</h5>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <div class="terms-content">
+    <h4>Introduction & Acceptance</h4>
+    <p>By registering and working with the MediEntry, the Employee agrees that to abide by these Terms & Conditions.</p>
+
+    <h4>Eligibility Requirements</h4>
+    <ul>
+        <li>The Employee must be at least 18 years of age at the time of registration.</li>
+        <li>The Employee must possess a valid and active bank account in their own name to receive payments.</li>
+        <li>The Employee must provide accurate and truthful information including name, address, contact details, and identification proof.</li>
+        <li>The Employee must have basic computer knowledge, internet literacy, and the ability to read instructions.</li>
+        <li>Individuals previously suspended, banned, or blacklisted by the Company are not eligible.</li>
+    </ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Requirement</th>
+          <th>Description</th>
+          <th>Proof needed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Minimum Age</td>
+          <td>Must be 18 years or above</td>
+          <td>Aadhaar, PAN, or Passport</td>
+        </tr>
+        <tr>
+          <td>Bank Account</td>
+          <td>Active account required for payments</td>
+          <td>Passbook / Statement</td>
+        </tr>
+        <tr>
+          <td>Identification</td>
+          <td>Government-issued valid ID</td>
+          <td>Aadhaar, Voter ID</td>
+        </tr>
+        <tr>
+          <td>Skills</td>
+          <td>Basic typing and computer usage</td>
+          <td>Self-declaration or test</td>
+        </tr>
+        <tr>
+          <td>Exclusion</td>
+          <td>Previously banned employees not allowed</td>
+          <td>Company records</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Account Registration & Renewal</h4>
+    <p>Before an Employee can begin work, an official account must be registered and activated. The registration includes providing required details, submitting documents, and completing the payment as defined by the Company. Once completed, the Employee will be provided with a login dashboard, a wallet account, and unique credentials.</p>
+    <p>The account remains valid for 11 months from the date of activation. Upon completion, the Employee must renew the account to continue working. Renewal requires the following:</p>
+    <ul>
+        <li>Submitting a renewal request from the dashboard before expiry.</li>
+        <li>Paying the renewal fee as applicable.</li>
+        <li>Agreeing to any updated Terms & Conditions.</li>
+        <li>Company review and approval of the renewal request.</li>
+    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>Action</th>
+                <th>Responsibility</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Before Expiry</td>
+                <td>Submit renewal request</td>
+                <td>Employee</td>
+            </tr>
+            <tr>
+                <td>Upon Expiry</td>
+                <td>Account becomes inactive</td>
+                <td>Employee</td>
+            </tr>
+             <tr>
+                <td>Post Expiry</td>
+                <td>Submit reactivation request</td>
+                <td>Employee</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h4>Work Guidelines & Conduct</h4>
+    <p>Employees are expected to maintain a high standard of work and conduct while performing their duties.</p>
+    <ul>
+      <li>Any form of harassment, discrimination, or unprofessional behavior will not be tolerated.</li>
+      <li>Employees must adhere to all company policies and procedures at all times.</li>
+    </ul>
+     <table class="table">
+        <thead>
+            <tr>
+                <th>Guideline</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Work Hours</td>
+                <td>Employees must adhere to the designated work hours as per their contract.</td>
+            </tr>
+            <tr>
+                <td>Communication</td>
+                <td>All communication must be professional and respectful.</td>
+            </tr>
+             <tr>
+                <td>Confidentiality</td>
+                <td>Employees must maintain the confidentiality of all company information.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Work Rules</h4>
+    <p>Work assignments are structured into slots, where each slot contains 2000 forms. The Employee must complete all forms within the deadline while maintaining high accuracy. Forms must be completed individually without unauthorized automation. Any detected malpractice shall lead to deductions or termination.</p>
+
+    <h4>Payment Terms & Conditions</h4>
+    <p>Payments are calculated based on the accuracy of submitted forms. Correct forms are paid at ₹10 per form, with deductions applied for errors as per the defined error structure. Payments undergo a verification process within 7–15 working days. After verification, amounts are credited weekly into the Employee’s wallet on every Sunday. Withdrawals can be made to the registered bank account, subject to a minimum balance of ₹500 in the wallet. The Company is not responsible for any bank charges or delays incurred during the transfer process.</p>
+    <p>Employees can withdraw their earnings once the wallet balance reaches a minimum of ₹1000. Withdrawal is done directly to the registered bank account.</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Errors</th>
+          <th>Payment(%)</th>
+          <th>Example(₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0 errors</td>
+          <td>10</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td>1 error</td>
+          <td>7.5</td>
+          <td>750</td>
+        </tr>
+        <tr>
+          <td>2 errors</td>
+          <td>5</td>
+          <td>500</td>
+        </tr>
+        <tr>
+          <td>3 errors</td>
+          <td>2.5</td>
+          <td>250</td>
+        </tr>
+        <tr>
+          <td>More than 3</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h5>Earning Example:</h5>
+    <p>Below is an example scenario for completing a slot of 2000 forms:</p>
+    <ul>
+        <li>1200 Forms with No Errors = ₹12,000</li>
+        <li>350 Forms with 1 Minor Error = ₹2,625</li>
+        <li>200 Forms with 2 Minor Errors = ₹1,000</li>
+        <li>150 Forms with 3 Minor Errors = ₹375</li>
+        <li>100 Forms with 3+ Minor Errors = ₹0</li>
+    </ul>
+    <p><b>Total Approximate Earning: ₹16,000</b></p>
+
+
+    <h4>Referral Program</h4>
+    <p>Employees may refer others to join the program using a unique referral code provided in their dashboard. Each successful referral that results in a verified account activation will provide the referring Employee with an instant reward of ₹1000 credited to their wallet.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Referral Stage</th>
+                <th>Reward</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>New Employee joins</td>
+                <td>₹1000 credited</td>
+                <td>Must be a verified account.</td>
+            </tr>
+            <tr>
+                <td>Existing Employee Renewals</td>
+                <td>₹1000</td>
+                <td>Referral must be active & Renewed.</td>
+            </tr>
+             <tr>
+                <td>New Employee inactive</td>
+                <td>No reward</td>
+                <td>Referral not valid.</td>
+            </tr>
+             <tr>
+                <td>Fake/multiple accounts</td>
+                <td>No reward + penalty</td>
+                <td>Possible termination.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Restrictions</h4>
+    <p>Employees are prohibited from engaging in any form of malpractice, including but not limited to using automated tools, scripts, or outsourcing work. Any violation may result in immediate termination and forfeiture of payments.</p>
+    <ul>
+        <li>Creating or using multiple accounts.</li>
+        <li>Sharing login credentials with others.</li>
+        <li>Using bots or scripts to automate form completion.</li>
+        <li>Providing false or misleading information about the Company.</li>
+        <li>Submitting fraudulent referrals or accounts.</li>
+    </ul>
+
+    <h4>Termination & Suspension</h4>
+    <p>The Company reserves the right to suspend or terminate an Employee’s account for violations of these Terms & Conditions, poor performance, or misconduct. In such cases, any pending payments may be withheld, and the Employee may be barred from future participation in the program.</p>
+    <ul>
+        <li>Company is not liable for technical issues beyond its control.</li>
+        <li>Employees must report any discrepancies within 7 days of occurrence.</li>
+        <li>Company reserves the right to modify these Terms & Conditions at any time.</li>
+    </ul>
+
+    <h4>Support & Dispute Resolution</h4>
+    <p>For any issues or disputes, Employees should contact support via the provided channels. The Company will make reasonable efforts to resolve disputes amicably. In case of unresolved disputes, the matter may be escalated to arbitration as per the laws of the jurisdiction.</p>
+
+    <h4>Contact Information</h4>
+    <p>For any questions or concerns regarding these Terms & Conditions, please contact our support team at <a href="mailto:support&#64;medientry.co.in">support&#64;medientry.co.in</a>.</p>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
+</div>

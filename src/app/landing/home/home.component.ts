@@ -9,6 +9,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { SharedModule } from '../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 
 interface YouTubeVideo {
   id: string;
@@ -197,6 +199,24 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   closeImageModal(): void {
     this.selectedImage = null;
+  }
+
+  // Open Terms & Conditions modal
+  openTermsConditions() {
+    this.modalService.open(TermsConditionsComponent, {
+      size: 'lg',
+      centered: true,
+      scrollable: true
+    });
+  }
+
+  // Open Privacy Policy modal
+  openPrivacyPolicy() {
+    this.modalService.open(PrivacyPolicyComponent, {
+      size: 'lg',
+      centered: true,
+      scrollable: true
+    });
   }
 
   ngOnInit(): void {

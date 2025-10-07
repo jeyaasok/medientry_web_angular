@@ -1,5 +1,4 @@
 <div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
-    <!-- Begin page -->
     <div class="layout-wrapper landing">
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar"
             (window:scroll)="windowScroll()">
@@ -60,26 +59,22 @@
 
             </div>
         </nav>
-        <!-- end navbar -->
-
-        <!-- start hero section -->
         <section class="section job-hero-section bg-light pb-0" id="hero">
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-6">
                         <div>
-                            <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base">Join Our Virtual Team as<br>Data Entry Specialist</h1>
-                            <p class="lead text-muted lh-base mb-4">Join MediEntry's team of data entry specialists. Earn competitive pay while working flexibly from home, contributing to healthcare efficiency.</p>
+                            <h1 class="display-6 fw-semibold text-capitalize mb-3 lh-base"><strong>Easy data entry jobs,<br> right from your couch.</strong></h1>
+                            <p class="lead text-muted lh-base mb-4"><strong>Turn your spare time into cash. With MediEntry, you get flexible hours, reliable semi-monthly payments, and the freedom to work anytime, anywhere.</strong></p>
                             <div class="mt-4">
                                 <a href="#" class="btn btn-primary btn-lg me-3">
-                                    <i class="ri-download-cloud-line align-middle me-1"></i> Download Now
+                                    <i class="ri-download-cloud-line align-middle me-1"></i> <strong>Download App & Get Started</strong>
                                 </a>
                                 <button class="btn btn-light btn-lg" (click)="openHowToStartModal()">
                                     <i class="ri-information-line align-middle me-1"></i> How to Start
                                 </button>
                             </div>
 
-                            <!-- How to Start Modal -->
                             <ng-template #howToStartModal let-modal>
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
@@ -89,7 +84,6 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="getting-started-steps">
-                                                <!-- Download -->
                                                 <div class="step-item mb-4">
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
@@ -104,7 +98,6 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- Profile Setup -->
                                                 <div class="step-item mb-4">
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
@@ -115,7 +108,6 @@
                                                     <p class="text-muted ms-5">Fill in your personal details and professional information to create your profile.</p>
                                                 </div>
 
-                                                <!-- Agreement & Payment -->
                                                 <div class="step-item mb-4">
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
@@ -130,7 +122,6 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- Start Working -->
                                                 <div class="step-item mb-4">
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="step-icon bg-primary-subtle text-primary rounded-circle p-2 me-3">
@@ -141,7 +132,6 @@
                                                     <p class="text-muted ms-5">Start processing forms immediately after slot activation. Each slot contains 2000 forms.</p>
                                                 </div>
 
-                                                <!-- Important Information -->
                                                 <div class="important-info mt-4">
                                                     <h6 class="mb-3">Important Information:</h6>
                                                     <ul class="list-unstyled">
@@ -180,8 +170,8 @@
                                         <div class="d-flex align-items-center">
                                             <i class="ri-computer-line text-primary fs-3 me-2"></i>
                                             <div>
-                                                <h6 class="mb-0">Work From Home</h6>
-                                                <small class="text-muted">Flexible Hours</small>
+                                                <h6 class="mb-0"><strong>Fully Remote</strong></h6>
+                                                <small class="text-muted"><strong>All you need is a PC</strong></small>
                                             </div>
                                         </div>
                                     </div>
@@ -189,17 +179,17 @@
                                         <div class="d-flex align-items-center">
                                             <i class="ri-money-dollar-circle-line text-primary fs-3 me-2"></i>
                                             <div>
-                                                <h6 class="mb-0">Semi-monthly</h6>
-                                                <small class="text-muted">Payments</small>
+                                                <h6 class="mb-0"><strong>Easy Payments</strong></h6>
+                                                <small class="text-muted"><strong>Twice a month</strong></small>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="d-flex align-items-center">
-                                            <i class="ri-file-list-3-line text-primary fs-3 me-2"></i>
+                                            <i class="ri-time-line text-primary fs-3 me-2"></i>
                                             <div>
-                                                <h6 class="mb-0">11 Work Slots</h6>
-                                                <small class="text-muted">2000 Forms/Slot</small>
+                                                <h6 class="mb-0"><strong>Work Anytime</strong></h6>
+                                                <small class="text-muted"><strong>You set the schedule</strong></small>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +206,7 @@
                                             <i class="ri-file-text-line"></i>
                                         </div>
                                     </div>
-                                    <h5 class="fs-15 lh-base mb-0">Easy work from home Data Entry</h5>
+                                    <h5 class="fs-15 lh-base mb-0"><strong>Simple Work, Real Money</strong></h5>
                                 </div>
                             </div>
 
@@ -227,11 +217,10 @@
                                             <i class="ri-money-dollar-box-line"></i>
                                         </div>
                                     </div>
-                                    <h5 class="fs-15 lh-base mb-0">Semi-monthly payments</h5>
+                                    <h5 class="fs-15 lh-base mb-0"><strong>Reliable Payments, Twice a Month</strong></h5>
                                 </div>
                             </div>
 
-                            <!-- You might want to replace this image with a screenshot of your MediEntry application -->
                             <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                             <div class="responsive-animation-container">
                                 <dotlottie-wc src="https://lottie.host/bdd9d7e3-f970-4e70-af41-8ea6730678e0/98EPpvmUN2.lottie" 
@@ -249,16 +238,13 @@
                 </div>
             </div>
         </section>
-        <!-- end hero section -->
-
-        <!-- About Us Section -->
         <section class="section" id="about">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h2 class="mb-3">About MediEntry</h2>
-                            <p class="text-muted">Leading the way in medical data digitization</p>
+                            <h2 class="mb-3"><strong>A Simple Path to Online Earning</strong></h2>
+                            <p class="text-muted"><strong>We make work-from-home accessible to everyone.</strong></p>
                         </div>
                     </div>
                 </div>
@@ -275,8 +261,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="about-content ps-4">
-                            <h3 class="mb-4">Transforming Healthcare Data Management</h3>
-                            <p class="text-muted">MediEntry is a pioneering platform that bridges the gap between paper-based medical records and digital healthcare systems. Our mission is to accelerate the digital transformation of healthcare while creating flexible work opportunities for individuals worldwide.</p>
+                            <h3 class="mb-4"><strong>Your Opportunity for Flexible Online Work</strong></h3>
+                            <p class="text-muted"><strong>MediEntry provides a simple, secure platform for anyone looking to earn a steady income from home. We partner with healthcare providers to digitize their records, and you are the key to making it happen. No experience needed—just a computer, an internet connection, and attention to detail.</strong></p>
                             
                             <div class="row mt-4">
                                 <div class="col-md-6">
@@ -338,14 +324,13 @@
             </div>
         </section>
 
-        <!-- Features Section -->
         <section class="section bg-light" id="features">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h2 class="mb-3">Why Join MediEntry?</h2>
-                            <p class="text-muted">Join our growing team of remote medical form entry specialists</p>
+                            <h2 class="mb-3"><strong>The Benefits of Joining MediEntry</strong></h2>
+                            <p class="text-muted"><strong>Everything you need for a successful work-from-home journey.</strong></p>
                         </div>
                     </div>
                 </div>
@@ -357,11 +342,11 @@
                                     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                                     <dotlottie-wc src="https://lottie.host/0b4b1ef9-2d07-4ba5-83ce-3e58a66f19d2/xA95U0i56H.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
                                 </div>
-                                <h5 class="mb-3">11 Slots Contract</h5>
+                                <h5 class="mb-3"><strong>Structured Work, Clear Goals</strong></h5>
                                 <ul class="list-unstyled text-muted mb-0">
-                                    <li class="mb-2">✓ 2,000 forms per slot</li>
-                                    <li class="mb-2">✓ Fixed completion period</li>
-                                    <li>✓ 500 forms omission allowance</li>
+                                    <li class="mb-2">✓ <strong>Guaranteed workload</strong></li>
+                                    <li class="mb-2">✓ <strong>Clear completion targets</strong></li>
+                                    <li>✓ <strong>Flexible task submission</strong></li>
                                 </ul>
                             </div>
                         </div>
@@ -373,19 +358,19 @@
                                     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                                     <dotlottie-wc src="https://lottie.host/ab66ce85-3867-442c-92f9-4118d95a8adb/ZvNqlaMipb.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
                                 </div>
-                                <h5 class="mb-3">Easy Work From Home</h5>
+                                <h5 class="mb-3"><strong>Work On Your Terms</strong></h5>
                                 <ul class="list-unstyled text-muted mb-0">
                                     <li class="mb-3">
                                         <i class="ri-check-line text-success me-2"></i>
-                                        Flexible Working Hours
+                                        <strong>Work anytime that fits your life</strong>
                                     </li>
                                     <li class="mb-3">
                                         <i class="ri-check-line text-success me-2"></i>
-                                        No Complex Skills Required
+                                        <strong>No special skills needed</strong>
                                     </li>
                                     <li>
                                         <i class="ri-check-line text-success me-2"></i>
-                                        Work at Your Own Pace
+                                        <strong>Complete tasks at your own pace</strong>
                                     </li>
                                 </ul>
                             </div>
@@ -398,11 +383,11 @@
                                     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                                     <dotlottie-wc src="https://lottie.host/39285f8e-d146-4408-ae77-82e7e8d28734/eqDbCaJDvh.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
                                 </div>
-                                <h5 class="mb-3">Quick Payments</h5>
+                                <h5 class="mb-3"><strong>Get Paid Fast & Regularly</strong></h5>
                                 <ul class="list-unstyled text-muted mb-0">
-                                    <li class="mb-2">✓ 7-day verification process</li>
-                                    <li class="mb-2">✓ Bi-monthly payments</li>
-                                    <li>✓ Direct bank transfer</li>
+                                    <li class="mb-2">✓ <strong>Quick 7-day verification</strong></li>
+                                    <li class="mb-2">✓ <strong>Payments on 15th & 30th of month</strong></li>
+                                    <li>✓ <strong>Direct to your bank account</strong></li>
                                 </ul>
                             </div>
                         </div>
@@ -411,14 +396,13 @@
             </div>
         </section>
 
-        <!-- How it Works Section -->
         <section class="section" id="howitworks">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h2 class="mb-3">How to Get Started</h2>
-                            <p class="text-muted">Join our team in just a few simple steps</p>
+                            <h2 class="mb-3">How to Get Started in 4 Easy Steps</h2>
+                            <p class="text-muted"><strong>You're just a few clicks away from earning.</strong></p>
                         </div>
                     </div>
                 </div>
@@ -429,8 +413,8 @@
                                 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                                 <dotlottie-wc src="https://lottie.host/0e849f67-77d4-4cac-9e0c-69d0e151a93b/SQoIrAr2wg.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
-                            <h5>Download & Install</h5>
-                            <p class="text-muted">Download and install the MediEntry application on your system</p>
+                            <h5><strong>1. Download the App</strong></h5>
+                            <p class="text-muted"><strong>Get our secure, easy-to-use application for your computer.</strong></p>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -439,8 +423,8 @@
                                 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                                 <dotlottie-wc src="https://lottie.host/a7aed00e-4a57-4133-aae3-ee6470a7a34a/Ph2vtLZ0BB.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
-                            <h5>Setup Profile</h5>
-                            <p class="text-muted">Complete your profile and system verification</p>
+                            <h5><strong>2. Create Your Profile</strong></h5>
+                            <p class="text-muted"><strong>Quickly set up your account so we know where to send your payments.</strong></p>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -449,8 +433,8 @@
                                 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                                 <dotlottie-wc src="https://lottie.host/bda46928-bf36-470b-9d76-97322d14277c/dIjETiNQAU.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
-                            <h5>Make Payment</h5>
-                            <p class="text-muted">Pay for 11 slots through secure payment portal</p>
+                            <h5><strong>3. Activate Your Work Slots</strong></h5>
+                            <p class="text-muted"><strong>A one-time setup fee unlocks your access to thousands of forms.</strong></p>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -459,8 +443,8 @@
                                 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
                                 <dotlottie-wc src="https://lottie.host/0c7975ac-ce7e-4d5f-9bd4-887e74f80d23/ygsKWnukrU.lottie" style="width: 80px; height: 80px;" autoplay loop></dotlottie-wc>
                             </div>
-                            <h5>Start Working</h5>
-                            <p class="text-muted">Begin processing forms immediately after activation</p>
+                            <h5><strong>4. Start Earning</strong></h5>
+                            <p class="text-muted"><strong>Once activated, you can start entering data and earning immediately.</strong></p>
                         </div>
                     </div>
                     <div class="col-12 text-center mb-5">
@@ -472,7 +456,6 @@
             </div>
         </section>
 
-        <!-- Benefits Section -->
         <section class="section bg-light" id="benefits">
             <div class="container">
                 <div class="row justify-content-center">
@@ -550,7 +533,6 @@
             </div>
         </section>
 
-        <!-- Affiliation Program Section -->
         <section class="section" id="affiliation">
             <div class="container">
                 <div class="row justify-content-center">
@@ -605,16 +587,6 @@
             </div>
         </section>
 
-        <!-- Video Tutorials Section - Commented out
-        <section class="section" id="tutorials">
-        </section>
-        -->
-
-        <!-- Gallery Section - Commented out -->
-        <!-- <section class="section bg-light" id="gallery">
-        </section> -->
-
-        <!-- FAQ Section -->
         <section class="section bg-light" id="faq">
             <div class="container">
                 <div class="row justify-content-center">
@@ -700,7 +672,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section class="section" id="contact">
             <div class="container">
                 <div class="row justify-content-center">
@@ -712,7 +683,6 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <!-- Animation Column -->
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="text-center">
                             <div class="contact-info">
@@ -752,7 +722,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Contact Form Column -->
                     <div class="col-lg-6">
                         <div class="card border-0 shadow-lg">
                             <div class="card-body p-4">
@@ -766,7 +735,7 @@
                                             <input type="text" 
                                                 class="form-control" 
                                                 [ngClass]="{'is-invalid': contactForm.get('name')?.touched && contactForm.get('name')?.invalid,
-                                                          'is-valid': contactForm.get('name')?.valid}"
+                                                            'is-valid': contactForm.get('name')?.valid}"
                                                 id="name" 
                                                 formControlName="name" 
                                                 placeholder="Enter your name">
@@ -786,7 +755,7 @@
                                             <input type="tel" 
                                                 class="form-control" 
                                                 [ngClass]="{'is-invalid': contactForm.get('mobile')?.touched && contactForm.get('mobile')?.invalid,
-                                                          'is-valid': contactForm.get('mobile')?.valid}"
+                                                            'is-valid': contactForm.get('mobile')?.valid}"
                                                 id="mobile" 
                                                 formControlName="mobile" 
                                                 placeholder="Enter your mobile number">
@@ -806,7 +775,7 @@
                                             <input type="email" 
                                                 class="form-control" 
                                                 [ngClass]="{'is-invalid': contactForm.get('email')?.touched && contactForm.get('email')?.invalid,
-                                                          'is-valid': contactForm.get('email')?.valid}"
+                                                            'is-valid': contactForm.get('email')?.valid}"
                                                 id="email" 
                                                 formControlName="email" 
                                                 placeholder="Enter your email">
@@ -825,7 +794,7 @@
                                             </span>
                                             <textarea class="form-control" 
                                                 [ngClass]="{'is-invalid': contactForm.get('reason')?.touched && contactForm.get('reason')?.invalid,
-                                                          'is-valid': contactForm.get('reason')?.valid}"
+                                                            'is-valid': contactForm.get('reason')?.valid}"
                                                 id="reason" 
                                                 formControlName="reason" 
                                                 rows="4" 
@@ -854,21 +823,20 @@
                         </div>
                     </div>
 
-                    <!-- Toast Notification -->
                     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050">
                         <div *ngIf="showToast" 
                             class="toast show" 
                             [ngClass]="{'bg-success text-white': toastType === 'success', 
-                                       'bg-danger text-white': toastType === 'error'}"
+                                        'bg-danger text-white': toastType === 'error'}"
                             role="alert" 
                             aria-live="assertive" 
                             aria-atomic="true">
                             <div class="toast-header border-0" 
                                 [ngClass]="{'bg-success text-white': toastType === 'success', 
-                                           'bg-danger text-white': toastType === 'error'}">
+                                            'bg-danger text-white': toastType === 'error'}">
                                 <i class="me-2" 
                                    [ngClass]="{'ri-check-line': toastType === 'success', 
-                                             'ri-error-warning-line': toastType === 'error'}"></i>
+                                               'ri-error-warning-line': toastType === 'error'}"></i>
                                 <strong class="me-auto">{{toastType === 'success' ? 'Success' : 'Error'}}</strong>
                                 <button type="button" 
                                     class="btn-close btn-close-white" 
@@ -884,7 +852,6 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <div class="row align-items-center">
@@ -893,15 +860,14 @@
                     </div>
                     <div class="col-md-6 text-md-end text-center">
                         <div class="footer-links">
-                            <a href="#" class="me-3">Terms & Conditions</a>
-                            <a href="#">Privacy Policy</a>
+                            <a href="javascript:void(0);" (click)="openTermsConditions()" class="me-3">Terms & Conditions</a>
+                            <a href="javascript:void(0);" (click)="openPrivacyPolicy()">Privacy Policy</a>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
 
-        <!-- Fixed Marquee -->
         <div class="fixed-marquee">
             <marquee scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">
                 <ng-container *ngFor="let item of withdrawals">
@@ -911,12 +877,8 @@
             </marquee>
         </div>
 
-        <!--start back-to-top-->
         <button (click)="topFunction()" class="btn btn-primary btn-icon landing-back-top" id="back-to-top">
             <i class="ri-arrow-up-line"></i>
         </button>
-        <!--end back-to-top-->
-
+        </div>
     </div>
-    <!-- end layout wrapper -->
-</div>
