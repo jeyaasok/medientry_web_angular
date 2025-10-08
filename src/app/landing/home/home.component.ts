@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import lottie from 'lottie-web';
@@ -11,117 +11,118 @@ import { RouterModule } from '@angular/router';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'; // Import DomSanitizer and SafeResourceUrl
 
+// Updated YouTubeVideo interface to include a safe URL for embedding
 interface YouTubeVideo {
   id: string;
   title: string;
   thumbnailUrl: string;
+  videoUrl?: SafeResourceUrl; // Optional: to store the sanitized embed URL
 }
 
-interface GalleryImage {
+interface AppScreenshot {
   url: string;
   title: string;
-  description?: string;
-  category: 'workspace' | 'team' | 'success';
+  description: string;
 }
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
-    standalone: true,
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgbCollapseModule,
-        NgbToastModule,
-        NgbModalModule,
-        ScrollToModule,
-        SharedModule,
-        RouterModule,
-        CdkAccordionModule
-    ]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbCollapseModule,
+    NgbToastModule,
+    NgbModalModule,
+    ScrollToModule,
+    SharedModule,
+    RouterModule,
+    CdkAccordionModule
+  ]
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('animationContainer') animationContainer!: ElementRef;
   @ViewChild('howToStartModal') howToStartModal: any;
   @ViewChild('videoContainer') videoContainer!: ElementRef;
-  
+
   currentSection = 'home';
   public isCollapsed = true;
   currentYear: number = new Date().getFullYear();
-  
+
+  // Property to hold the video currently active in the modal
+  activeVideo: YouTubeVideo | null = null;
+
+  // Corrected YouTube video data with proper IDs and thumbnail URLs
+  marqueeVideos: YouTubeVideo[] = [];
+
   youtubeVideos: YouTubeVideo[] = [
     {
-      id: 'VIDEO_ID_1',
+      id: 'vGkdpbxeCr4', // Actual YouTube video ID
       title: 'How to Get Started with Medical Form Entry',
-      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg`
+      thumbnailUrl: `https://img.youtube.com/vi/vGkdpbxeCr4/hqdefault.jpg` // Correct thumbnail URL
     },
     {
-      id: 'VIDEO_ID_2',
+      id: 'vGkdpbxeCr4', // You had the same ID for all; update if these are distinct videos
       title: 'Medical Entry Work Process Explained',
-      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg`
+      thumbnailUrl: `https://img.youtube.com/vi/vGkdpbxeCr4/hqdefault.jpg`
     },
     {
-      id: 'VIDEO_ID_3',
+      id: 'vGkdpbxeCr4', // You had the same ID for all; update if these are distinct videos
       title: 'Tips for Accurate Medical Data Entry',
-      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg`
+      thumbnailUrl: `https://img.youtube.com/vi/vGkdpbxeCr4/hqdefault.jpg`
     },
     {
-      id: 'VIDEO_ID_4',
+      id: 'vGkdpbxeCr4', // You had the same ID for all; update if these are distinct videos
       title: 'Earning Potential in Medical Entry Work',
-      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_4/maxresdefault.jpg`
+      thumbnailUrl: `https://img.youtube.com/vi/vGkdpbxeCr4/hqdefault.jpg`
     },
     {
-      id: 'VIDEO_ID_5',
+      id: 'vGkdpbxeCr4', // You had the same ID for all; update if these are distinct videos
       title: 'Success Stories from Our Members',
-      thumbnailUrl: `https://img.youtube.com/vi/VIDEO_ID_5/maxresdefault.jpg`
+      thumbnailUrl: `https://img.youtube.com/vi/vGkdpbxeCr4/hqdefault.jpg`
     }
   ];
 
-  galleryImages: GalleryImage[] = [
+  appScreenshots: AppScreenshot[] = [
     {
-      url: 'assets/images/gallery/workspace-1.jpg',
-      title: 'Modern Home Office Setup',
-      description: 'Comfortable workspace for efficient data entry',
-      category: 'workspace'
+      url: 'assets/images/gallery/1.png',
+      title: 'Dashboard',
+      description: 'Your work overview at a glance'
     },
     {
-      url: 'assets/images/gallery/workspace-2.jpg',
-      title: 'Dual Monitor Setup',
-      description: 'Enhanced productivity with multi-screen setup',
-      category: 'workspace'
+      url: 'assets/images/gallery/2.png',
+      title: 'Form Entry',
+      description: 'Simple and efficient data entry interface'
     },
     {
-      url: 'assets/images/gallery/team-1.jpg',
-      title: 'Support Team',
-      description: 'Our dedicated customer support team',
-      category: 'team'
+      url: 'assets/images/gallery/3.png',
+      title: 'Progress Tracking',
+      description: 'Monitor your daily achievements'
     },
     {
-      url: 'assets/images/gallery/team-2.jpg',
-      title: 'Training Session',
-      description: 'Online training and skill development',
-      category: 'team'
+      url: 'assets/images/gallery/4.png',
+      title: 'Payment History',
+      description: 'Track your earnings and payments'
     },
     {
-      url: 'assets/images/gallery/success-1.jpg',
-      title: 'Top Performer Award',
-      description: 'Recognizing excellence in data entry',
-      category: 'success'
+      url: 'assets/images/gallery/5.png',
+      title: 'Support System',
+      description: 'Get help when you need it'
     },
     {
-      url: 'assets/images/gallery/success-2.jpg',
-      title: 'Team Achievement',
-      description: 'Celebrating milestones together',
-      category: 'success'
+      url: 'assets/images/gallery/6.png',
+      title: 'Settings',
+      description: 'Customize your work environment'
     }
   ];
 
-  selectedFilter: 'all' | 'workspace' | 'team' | 'success' = 'all';
-  selectedImage: GalleryImage | null = null;
+  selectedImage: AppScreenshot | null = null;
   contactForm: FormGroup;
   isSubmitting = false;
   showToast = false;
@@ -173,7 +174,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private sanitizer: DomSanitizer // Inject DomSanitizer
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')]],
@@ -183,22 +185,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  filterGallery(category: 'all' | 'workspace' | 'team' | 'success'): void {
-    this.selectedFilter = category;
+  // Remove the @ViewChild('videoCarousel'), scrollPosition, autoScrollInterval,
+  // isDragging, startX, scrollLeft properties as they are no longer needed
+  // with the new modal-based video player and a simpler flex layout for the carousel.
+
+  // The methods related to auto-scrolling and manual scrolling of the video carousel
+  // (startAutoScroll, stopAutoScroll, onMouseDown, onMouseMove, onMouseUp, onMouseLeave)
+  // are also removed as they are not relevant to the new implementation.
+
+  ngOnInit(): void {
+    // No need to set marqueeVideos, we'll use youtubeVideos directly in the template
   }
 
-  getFilteredImages(): GalleryImage[] {
-    return this.selectedFilter === 'all' 
-      ? this.galleryImages 
-      : this.galleryImages.filter(img => img.category === this.selectedFilter);
-  }
-
-  openImageModal(image: GalleryImage): void {
-    this.selectedImage = image;
-  }
-
-  closeImageModal(): void {
-    this.selectedImage = null;
+  ngOnDestroy(): void {
+    // if (this.autoScrollInterval) { // No longer needed
+    //   clearInterval(this.autoScrollInterval);
+    // }
   }
 
   // Open Terms & Conditions modal
@@ -219,17 +221,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit(): void {
-    // Initialize component
+  /**
+   * This function runs when you click a video.
+   * It creates the safe URL and sets `activeVideo` to show the modal.
+   */
+  playVideo(video: YouTubeVideo): void {
+    const embedUrl = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
+    video.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+    this.activeVideo = video;
   }
 
-  ngOnDestroy(): void {
-    // Component cleanup
+  /**
+   * This function runs when you click the backdrop or close button.
+   * It hides the modal by clearing `activeVideo`.
+   */
+  closeModal(): void {
+    this.activeVideo = null;
+  }
+
+  // Gallery modal controls
+  openImageModal(image: AppScreenshot): void {
+    this.selectedImage = image;
+  }
+
+  closeImageModal(): void {
+    this.selectedImage = null;
   }
 
   // Open How to Start Modal
   openHowToStartModal() {
-    this.modalService.open(this.howToStartModal, { 
+    this.modalService.open(this.howToStartModal, {
       size: 'lg',
       centered: true,
       scrollable: true
@@ -283,7 +304,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
-      
+
       // Send form data to PHP backend
       this.http.post('/api/contact.php', this.contactForm.value)
         .subscribe({

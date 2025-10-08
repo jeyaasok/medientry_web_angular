@@ -37,7 +37,12 @@
                         <li class="nav-item">
                             <a class="nav-link fs-14" href="javascript:void(0);"
                                 [ngClass]="{'active':currentSection === 'affiliation'}"
-                                [ngxScrollTo]="'#affiliation'">Affiliation</a>
+                                [ngxScrollTo]="'#affiliation'">Referral Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-14" href="javascript:void(0);"
+                                [ngClass]="{'active':currentSection === 'tutorials'}"
+                                [ngxScrollTo]="'#tutorials'">Tutorials</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fs-14" href="javascript:void(0);"
@@ -538,7 +543,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h2 class="mb-3">Affiliation Program</h2>
+                            <h2 class="mb-3">Referral Program</h2>
                             <p class="text-muted">Refer friends and earn rewards together</p>
                         </div>
                     </div>
@@ -584,6 +589,181 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Video Tutorials Section -->
+        <section class="section" id="tutorials">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          <h2 class="mb-3"><strong>Video Tutorials</strong></h2>
+          <p class="text-muted"><strong>Learn how to maximize your earnings with these helpful guides</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <!-- First set of videos -->
+        @for (video of youtubeVideos; track $index) {
+          <div class="video-item">
+            <div class="card border-0 shadow-sm">
+              <div class="video-thumbnail position-relative" (click)="playVideo(video)">
+                <img [src]="video.thumbnailUrl" [alt]="video.title" class="card-img-top" loading="lazy">
+                <div class="play-overlay">
+                  <i class="ri-play-circle-line"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><strong>{{video.title}}</strong></h5>
+              </div>
+            </div>
+          </div>
+        }
+        <!-- Duplicate set for seamless loop -->
+        @for (video of youtubeVideos; track $index) {
+          <div class="video-item">
+            <div class="card border-0 shadow-sm">
+              <div class="video-thumbnail position-relative" (click)="playVideo(video)">
+                <img [src]="video.thumbnailUrl" [alt]="video.title" class="card-img-top" loading="lazy">
+                <div class="play-overlay">
+                  <i class="ri-play-circle-line"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><strong>{{video.title}}</strong></h5>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+@if (activeVideo) {
+  <div class="video-modal-backdrop" (click)="closeModal()">
+    <div class="video-modal-content" (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="closeModal()">&times;</button>
+      <div class="video-player-wrapper">
+        <iframe 
+          width="560" 
+          height="315" 
+          [src]="activeVideo.videoUrl" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+}
+
+        <!-- Gallery Section -->
+        <section class="section bg-light" id="gallery">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3"><strong>Application Screenshots</strong></h2>
+                            <p class="text-muted"><strong>Take a look at our user-friendly interface</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item card border-0 shadow-sm" (click)="openImageModal(appScreenshots[0])">
+                            <div class="position-relative">
+                                <img src="assets/images/gallery/1.png" alt="Dashboard View" class="card-img-top" loading="lazy">
+                                <div class="gallery-overlay">
+                                    <h5 class="mb-1">Dashboard</h5>
+                                    <p class="text-white mb-0">Your work overview at a glance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item card border-0 shadow-sm" (click)="openImageModal(appScreenshots[1])">
+                            <div class="position-relative">
+                                <img src="assets/images/gallery/2.png" alt="Form Entry Interface" class="card-img-top" loading="lazy">
+                                <div class="gallery-overlay">
+                                    <h5 class="mb-1">Form Entry</h5>
+                                    <p class="text-white mb-0">Simple and efficient data entry interface</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item card border-0 shadow-sm" (click)="openImageModal(appScreenshots[2])">
+                            <div class="position-relative">
+                                <img src="assets/images/gallery/3.png" alt="Progress Tracking" class="card-img-top" loading="lazy">
+                                <div class="gallery-overlay">
+                                    <h5 class="mb-1">Progress Tracking</h5>
+                                    <p class="text-white mb-0">Monitor your daily achievements</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item card border-0 shadow-sm" (click)="openImageModal(appScreenshots[3])">
+                            <div class="position-relative">
+                                <img src="assets/images/gallery/4.png" alt="Payment History" class="card-img-top" loading="lazy">
+                                <div class="gallery-overlay">
+                                    <h5 class="mb-1">Payment History</h5>
+                                    <p class="text-white mb-0">Track your earnings and payments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item card border-0 shadow-sm" (click)="openImageModal(appScreenshots[4])">
+                            <div class="position-relative">
+                                <img src="assets/images/gallery/5.png" alt="Support Interface" class="card-img-top" loading="lazy">
+                                <div class="gallery-overlay">
+                                    <h5 class="mb-1">Support System</h5>
+                                    <p class="text-white mb-0">Get help when you need it</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item card border-0 shadow-sm" (click)="openImageModal(appScreenshots[5])">
+                            <div class="position-relative">
+                                <img src="assets/images/gallery/6.png" alt="Settings Panel" class="card-img-top" loading="lazy">
+                                <div class="gallery-overlay">
+                                    <h5 class="mb-1">Settings</h5>
+                                    <p class="text-white mb-0">Customize your work environment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Modal -->
+                @if (selectedImage) {
+                <div class="modal fade show d-block" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{selectedImage.title}}</h5>
+                                <button type="button" class="btn-close" (click)="closeImageModal()"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img [src]="selectedImage.url" [alt]="selectedImage.title" class="img-fluid">
+                                @if (selectedImage.description) {
+                                <p class="mt-3 text-muted">{{selectedImage.description}}</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-backdrop fade show" (click)="closeImageModal()"></div>
+                }
             </div>
         </section>
 
